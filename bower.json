@@ -1,0 +1,30 @@
+{
+  "name": "favoriteweb",
+  "description": "Save favorite website. Where you don`t forget.",
+  "main": "index.js",
+  "authors": [
+    "Edson Akira Ito"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "express",
+    "angularjs",
+    "sites",
+    "favorite"
+  ],
+  "homepage": "https://github.com/oOAkiraOo/FavoriteWeb",
+  "moduleType": [
+    "node"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.7",
+    "bootstrap": "~3.3.5"
+  }
+}

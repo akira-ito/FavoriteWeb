@@ -1,0 +1,11 @@
+extends head
+
+block title
+  |Seja bem-vindo!
+
+block body
+  script(src='/controller/welcome.js')
+  div(ng-app="welcomeApp", ng-controller="welcomeCtlr")
+    p(style="height: 100px;")
+    h1 Seja Bem-Vindo.
+    p Um site com tudo, onde você salva seus sites favoritos e não esqueça mais! ;)

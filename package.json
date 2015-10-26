@@ -1,0 +1,35 @@
+{
+  "name": "favoriteweb",
+  "version": "1.0.0",
+  "description": "Save favorite website. Where you don`t forget.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test/**/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oOAkiraOo/FavoriteWeb.git"
+  },
+  "keywords": [
+    "express",
+    "angularjs",
+    "sites",
+    "favorite"
+  ],
+  "author": "Edson Akira Ito",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/oOAkiraOo/FavoriteWeb/issues"
+  },
+  "homepage": "https://github.com/oOAkiraOo/FavoriteWeb#readme",
+  "dependencies": {
+    "body-parser": "^1.14.1",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.0",
+    "express": "^4.13.3",
+    "express-session": "^1.11.3",
+    "jade": "^1.11.0",
+    "passport": "^0.3.0",
+    "passport-local": "^1.0.0"
+  }
+}

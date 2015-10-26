@@ -1,0 +1,18 @@
+extends head
+
+block title
+  |Ocoreu um erro inesperado!
+
+block body
+  br
+  p
+  div.col-md-2
+  div.panel.panel-default.col-md-8
+    .panel-body
+      .text-center
+        img(src="image/503.png")
+      h1 Ops. Ocorreu um erro.
+      .container
+        p Favor entrar em contato com um de nossos analista. Desculpe o transtorno.
+      .container
+      pre Error: #{err.message}
