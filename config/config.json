@@ -1,0 +1,9 @@
+{
+  "DES": {
+    "databases": {
+      "mongodb": {
+        "mongoose": "mongodb://localhost/users"
+      }
+    }
+  }
+}

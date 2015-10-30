@@ -16,11 +16,27 @@ module.exports.logon = function(req, res, next){
     res.render('login', {message:  req.flash('error')});
   }
 };
+module.exports.signUpView = function(req, res){
+  res.render('signUp', {message: req.flash('error')});
+};
 module.exports.login = passport.authenticate('local', {
   successRedirect: '/',
   failureRedirect: '/',
   failureFlash : true
 });
+module.exports.signUp = passport.authenticate('signUp', {
+  successRedirect: '/',
+  failureRedirect: '/signUp',
+  failureFlash : true
+});
+module.exports.google = passport.authenticate('google', {
+  scope : ['profile', 'email']
+});
+module.exports.googleCallback = passport.authenticate('google', {
+  successRedirect : '/',
+  failureRedirect : '/'
+});
+
 module.exports.logout = function(req, res){
   req.logout();
   res.redirect('/');

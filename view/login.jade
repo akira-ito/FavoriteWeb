@@ -27,11 +27,34 @@ block body
             .col-md-6
               input(type="password", name="password", placeholder="senha").form-control#senha
           .form-group
-            .col-md-6.col-md-offset-3
+            .col-md-2.col-md-offset-3
               .checkbox
                 label
                   input(type="checkbox", name="remember")
                   | Lembrar
+            .col-md-7
+              .checkbox
+                .col-md-5
+                  a(href="/signUp") fazer cadastro
+                .col-md-5
+                    a esqueci senha
           .form-group
-            .col-md-offset-3.col-md-6
-              button(type="submit").btn.btn-default Conectar
+            .col-md-offset-3.col-md-6.text-center
+              button(type="submit").btn.btn-warning Conectar
+      hr
+      .row
+        .col-md-offset-3.col-md-6.panel.panel-danger
+          .row
+            br
+          .row
+            .col-md-4.text-right
+              a(href="/auth/facebook")
+                img(src="/image/facebook.png", height="42", width="42")
+            .col-md-4.text-center
+              a(href="/auth/twitter")
+                img(src="/image/twitter.png", height="42", width="42")
+            .col-md-4.text-left
+              a(href="/auth/google")
+                img(src="/image/google+.png", height="42", width="42")
+          .row
+            br

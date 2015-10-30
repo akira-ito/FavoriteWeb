@@ -1,4 +1,7 @@
 var PassportLocalStrategy = require('passport-local').Strategy;
+var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
+var User = require('mongoose').model('User');
+var config = require('../config')();
 
 module.exports.serializeUser = function(user, done) {
   console.log('serializeUser', user);
@@ -16,11 +19,56 @@ module.exports.local = new PassportLocalStrategy({
     passReqToCallback : true
   },
   function (req, username, password, done){
-   console.log(username, password, "ddd");
-    if (username == "edson"){
-      return done(null, {username: "Edson Akira ito", email:"dfd@ddd.com"})
-    }else{
-      return done(null, false, req.flash('error', 'Ususario ou senha inválida.') );
-    }
+    User.findOne({username: username}, function(err, user){
+      if (err)
+        done(err);
+      else if (!user)
+        done(null, false, req.flash('error', 'Ususario não cadastrado.'));
+      else if (!user.authenticate(password))
+        done(null, false, req.flash('error', 'Senha incorreta.'));
+      else
+        done(null, user);
+   })
   }
-)
+);
+
+module.exports.signUp = new PassportLocalStrategy({
+    usernameField: 'username',
+    passwordField: 'password',
+    passReqToCallback : true
+  },
+  function (req, username, password, done){
+    process.nextTick(function(){
+      User.findOne({username: username}, function(err, user){
+        console.log(err, user);
+        if (err)
+          done(err);
+        else if (user)
+          done(null, false, req.flash('error','Usuário já existe'));
+        else{
+          var user = new User();
+          user.name = req.body['name'];
+          user.email = req.body['email'];
+          user.username = req.body['username'];
+          user.password = req.body['password'];
+
+          user.save(function(err, newUser){
+            if (err)
+              done(err);
+            else
+              done(null, newUser);
+          });
+        }
+     });
+   });
+  }
+);
+module.exports.google = new GoogleStrategy({
+    clientID        : config.auth.google.clientID,
+    clientSecret    : config.auth.google.clientSecret,
+    callbackURL     : config.auth.google.callbackURL,
+  }, function(token, refreshToken, profile, done){
+    console.log(token, refreshToken, profile);
+    done(null, {username: 25555});
+  }
+);

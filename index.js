@@ -6,4 +6,4 @@ if (process.argv.length >= 3 ) {
 }
 
 Server.loadConfig();
-Server.start(port, "localhost");
+Server.start(port, "127.0.0.1");
